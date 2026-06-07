@@ -79,7 +79,7 @@ sudo ./pbcdedit edit /mnt/boot/EFI/Microsoft/Boot/BCD \
 EFI_UUID=$(sudo blkid -s UUID -o value /dev/nvme0n1p1)
 
 # 17. 将 Windows 启动项追加到 /boot/grub/grub.cfg
-cat >> /boot/grub/grub.cfg << EOF
+sudo tee -a /boot/grub/grub.cfg > /dev/null << EOF
 
 menuentry "Windows 11 Pro for Workstations" {
     insmod fat
